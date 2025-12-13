@@ -1,7 +1,0 @@
-Staff_Name,Role,Outlet_Name,Shift_Date,Scheduled_Start,Scheduled_End,Actual_Check_In,Actual_Check_Out,Minutes_Late,Minutes_Early_Leave,Hours_Worked,Scheduled_Hours,Hours_Variance,Wage_Impact,Time_Flag
-"Priya Patel","Kitchen Staff","Urban Eats South Melbourne",2024-09-18,07:00:00,15:00:00,07:10:00,15:15:00,10.0,-15.0,8.08,8.00,0.08,1.88,"CHRONIC LATENESS"
-"Alex Nguyen","Kitchen Staff","Urban Eats CBD Sydney",2024-09-18,06:00:00,14:00:00,06:10:00,14:15:00,10.0,-15.0,8.08,8.00,0.08,1.84,"CHRONIC LATENESS"
-"Amy Davis","Kitchen Staff","Urban Eats Brisbane City",2024-09-18,06:30:00,14:30:00,06:40:00,14:45:00,10.0,-15.0,8.08,8.00,0.08,1.84,"CHRONIC LATENESS"
-"Emma Kelly",Server,"Urban Eats CBD Sydney",2024-09-17,06:00:00,14:00:00,06:10:00,14:10:00,10.0,-10.0,8.00,8.00,0.00,0.00,"CHRONIC LATENESS"
-"James Stewart",Server,"Urban Eats South Melbourne",2024-09-17,07:00:00,15:00:00,07:10:00,15:10:00,10.0,-10.0,8.00,8.00,0.00,0.00,"CHRONIC LATENESS"
-"Michael Fraser",Server,"Urban Eats Brisbane City",2024-09-17,06:30:00,14:30:00,06:40:00,14:40:00,10.0,-10.0,8.00,8.00,0.00,0.00,"CHRONIC LATENESS"
