@@ -246,7 +246,7 @@ This design ensures the numbers are **traceable and auditable**.
 ## 5. How to Use This Repository 
 
 1. **Create the database** with the Part A script  
-   `"[BUSA8090] - 48393479 - NGOC BAO HAN TRAN - PART A.sql"`
+   `"Database.sql"`
 
 2. **Run the relevant SQL file** from the `part-b/` folder when insight is needed:  
 
