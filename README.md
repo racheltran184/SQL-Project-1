@@ -1,6 +1,7 @@
-# Urban Eats Café Chain: SQL Decision Playbook
+# Urban Eats Café Analytics
 
 [![Case Study](https://img.shields.io/badge/Case_Study-Read_the_page-111111?style=for-the-badge)](https://racheltran184.github.io/SQL-Project-1/)
+
 ![MySQL 8](https://img.shields.io/badge/MySQL-8-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
 
 **The labour leak is in the roster, not the clock.** Urban Eats runs three cafés in Sydney, Melbourne and Brisbane. I designed its database and wrote the SQL behind five board questions, then took each answer down to the clock hour, the ticket and the plate. The result is four moves, each with an owner and a test: fit evening rosters to demand, sell the drink with takeaway, protect large bookings and win the second visit inside two weeks.
@@ -17,7 +18,7 @@
 | **Data** | 30 orders, 59 order lines, 27 payments, 15 bookings and 45 clocked staff shifts, August–September 2024 |
 | **Scope** | 25 customers, 31 menu items, 15 categories and 20 staff across 3 outlets |
 | **Tools** | MySQL 8: an 11-table schema, constraints, CTEs and window functions; a Chen-notation ERD |
-| **Project** | BUSA8090 Data and Visualisation for Business, Macquarie University (individual assignment) |
+| **Project** | Individual project for a postgraduate data and visualisation unit; taken deeper for the case study |
 
 ### Headline numbers
 
@@ -63,7 +64,9 @@ Urban Eats works as a loop. Customers book, order and pay; a central database re
 | Line price and cost against the menu | 3 lines carry another item's price and cost: pastries and a dessert keyed to the wrong product | Each line re-pointed to the item whose price and cost it carries |
 | Stored last-visit date | Older than the last order for 19 of 20 buyers; a 30-day rule on it would call 5 active customers lapsed | Recency computed from orders |
 | Booking outcomes | 5 of 10 bookings past their time still read "Confirmed" | Outcomes reported only where one was recorded |
-| Clock coverage | 9 of 20 rostered shifts have no clock records; 17–18 September are clocked | Labour compared hour by hour on clocked days only |
+| Clock coverage | 9 of 20 rostered shifts have no clock records; every clocked shift falls on 17 or 18 September | Labour compared hour by hour on clocked days only |
+
+*Query: `audit_ticket_lines`, `audit_line_prices`, `audit_last_visit`, `audit_bookings_open`, `audit_clock_coverage`*
 
 ---
 
@@ -87,7 +90,7 @@ Only 2 of 11 dine-in and 1 of 6 delivery food orders had no drink. **At the take
 *Query: `drink_attach`, `channel_mix`, `pair_lift`*
 
 ### 4. Mains earn the dollars, at the highest food cost
-A main earns **$7.70 to $13.70 a plate**; a coffee or pastry about $3. Fish and Chips has the lowest margin on the menu (59.8%) and the highest contribution per plate ($13.70). Fish and Chips, the Gourmet Burger and the Big Breakfast run at **40% food cost**, the highest on the menu. A $1 rise adds $1 a plate and pays for itself unless sales fall by more than 6.8% to 8.1%.
+A main earns **$7.70 to $13.70 a plate**; a coffee or pastry about $3. Fish and Chips has the lowest margin on the menu (59.8%) and the highest contribution per plate: $13.70. Fish and Chips, the Gourmet Burger and the Big Breakfast run at **40% food cost**, the highest on the menu. A $1 rise adds $1 a plate and pays for itself unless sales fall by more than 6.8% to 8.1%.
 
 *Query: `menu_cm`*
 
@@ -149,7 +152,7 @@ Each action names the trigger, the scope and a stop rule. Sizes come from the sa
 | `Business Concerns/` | First-pass queries for the five business concerns, with saved outputs |
 | `Urban Eat Cafe ERD.png` | Entity-relationship diagram |
 | `Urban Eat Cafe Operational Flowchart.png` | How the business runs |
-| `Urban Eat Cafe REPORT.pdf` | Assignment report |
+| `Urban Eat Cafe REPORT.pdf` | Original assignment report |
 
 ## How to run it
 
