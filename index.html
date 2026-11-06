@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Urban Eats Café Chain · SQL case study | Rachel Tran</title>
+  <title>Urban Eats Café Analytics · SQL | Rachel Tran</title>
   <meta name="description" content="A three-outlet café chain, one MySQL database and five board questions, taken down to the clock hour, the ticket and the plate: where labour leaks, where the ticket grows, and who should act."/>
   <meta name="author" content="Rachel Tran"/>
   <meta property="og:type" content="article"/>
@@ -774,7 +774,7 @@
       <p class="hero-sub">Urban Eats runs three cafés in Sydney, Melbourne and Brisbane. I designed its database and wrote the SQL behind five board questions, then took each answer <strong>down to the clock hour, the ticket and the plate</strong>. The result is four moves, each with an owner and a test: fit evening rosters to demand, sell the drink with takeaway, protect large bookings and win the second visit inside two weeks.</p>
       <div class="hero-actions">
         <a href="#findings" class="btn btn-dark">See the findings →</a>
-        <a href="https://github.com/racheltran184/SQL-Project-1" class="btn btn-ghost" target="_blank" rel="noopener">View the SQL ↗</a>
+        <a href="https://github.com/racheltran184/SQL-Project-1/blob/main/analysis.sql" class="btn btn-ghost" target="_blank" rel="noopener">View the SQL ↗</a>
       </div>
     </div>
     <div class="hero-right" aria-hidden="true">
@@ -801,8 +801,8 @@
           <div class="spec-row"><span class="spec-k">Data</span><span class="spec-v"><strong>30 orders</strong>, 59 order lines, 27 payments, 15 bookings and 45 clocked staff shifts, August–September 2024</span></div>
           <div class="spec-row"><span class="spec-k">Scope</span><span class="spec-v">25 customers, 31 menu items, 15 categories and 20 staff across 3 outlets</span></div>
           <div class="spec-row"><span class="spec-k">Tools</span><span class="spec-v">MySQL 8: an 11-table schema, constraints, CTEs and window functions; a Chen-notation ERD</span></div>
-          <div class="spec-row"><span class="spec-k">Project</span><span class="spec-v">BUSA8090 Data and Visualisation for Business, Macquarie University (individual assignment)</span></div>
-          <div class="spec-row"><span class="spec-k">Links</span><span class="spec-v"><a href="https://github.com/racheltran184/SQL-Project-1" target="_blank" rel="noopener">Repository ↗</a> &nbsp; <a href="https://github.com/racheltran184/SQL-Project-1/blob/main/Urban%20Eat%20Cafe%20REPORT.pdf" target="_blank" rel="noopener">Report (PDF) ↗</a></span></div>
+          <div class="spec-row"><span class="spec-k">Project</span><span class="spec-v">Individual project for a postgraduate data and visualisation unit; taken deeper for this page</span></div>
+          <div class="spec-row"><span class="spec-k">Links</span><span class="spec-v"><a href="https://github.com/racheltran184/SQL-Project-1" target="_blank" rel="noopener">Repository ↗</a> &nbsp; <a href="https://github.com/racheltran184/SQL-Project-1/blob/main/analysis.sql" target="_blank" rel="noopener">Queries (SQL) ↗</a> &nbsp; <a href="https://github.com/racheltran184/SQL-Project-1/blob/main/Urban%20Eat%20Cafe%20REPORT.pdf" target="_blank" rel="noopener">Report (PDF) ↗</a></span></div>
         </div>
       </aside>
       <div class="reveal">
@@ -890,7 +890,7 @@
             <tr><th scope="row">Line price and cost against the menu</th><td data-label="Found">3 lines carry another item's price and cost: pastries and a dessert keyed to the wrong product</td><td data-label="Handling">Each line re-pointed to the item whose price and cost it carries</td><td><span class="verdict v-no">Fixed</span></td></tr>
             <tr><th scope="row">Stored last-visit date</th><td data-label="Found">Older than the last order for 19 of 20 buyers; a 30-day rule on it would call 5 active customers lapsed</td><td data-label="Handling">Recency computed from orders</td><td><span class="verdict v-no">Replaced</span></td></tr>
             <tr><th scope="row">Booking outcomes</th><td data-label="Found">5 of 10 bookings past their time still read "Confirmed"</td><td data-label="Handling">Outcomes reported only where one was recorded</td><td><span class="verdict v-mid">Flagged</span></td></tr>
-            <tr><th scope="row">Clock coverage</th><td data-label="Found">9 of 20 rostered shifts have no clock records; 17–18 September are clocked</td><td data-label="Handling">Labour compared hour by hour on clocked days only</td><td><span class="verdict v-mid">Scoped</span></td></tr>
+            <tr><th scope="row">Clock coverage</th><td data-label="Found">9 of 20 rostered shifts have no clock records; every clocked shift falls on 17 or 18 September</td><td data-label="Handling">Labour compared hour by hour on clocked days only</td><td><span class="verdict v-mid">Scoped</span></td></tr>
           </tbody>
         </table>
       </div>
@@ -922,7 +922,7 @@ JOIN PRODUCT p ON p.Product_ID = oi.Product_ID
 LEFT JOIN PRODUCT m ON m.Price = oi.Unit_Price AND m.Cost = oi.Item_Cost
 WHERE oi.Unit_Price &lt;&gt; p.Price OR oi.Item_Cost &lt;&gt; p.Cost
 ORDER BY oi.Order_ID;</code></pre></div>
-        <p class="src">MySQL 8 · runs on the schema and records in the repository's <a href="https://github.com/racheltran184/SQL-Project-1/blob/main/Database" target="_blank" rel="noopener">Database</a> script</p>
+        <p class="src">MySQL 8 · runs on the schema and records in the repository's <a href="https://github.com/racheltran184/SQL-Project-1/blob/main/Database" target="_blank" rel="noopener">Database</a> script; every query on this page is in <a href="https://github.com/racheltran184/SQL-Project-1/blob/main/analysis.sql" target="_blank" rel="noopener">analysis.sql</a></p>
       </details>
     </div>
   </div>
@@ -1410,7 +1410,7 @@ ORDER BY Gap_Days;</code></pre></div>
   <span>Data analyst · Sydney, Australia</span>
   <a href="#hero">Back to top ↑</a>
 </footer>
-<p class="disclaimer">Urban Eats is a case company. Its records are dummy data built for the BUSA8090 assignment at Macquarie University, and every name in them is fictional. Figures describe that sample; dollar effects are arithmetic, not forecasts.</p>
+<p class="disclaimer">Urban Eats is a case company. Its records are dummy data built for a postgraduate assignment, and every name in them is fictional. Figures describe that sample; dollar effects are arithmetic, not forecasts.</p>
 
 <script>
 /* ════════════════════════════════════════════════════════════════════════
